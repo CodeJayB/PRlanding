@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실시간 QR 코드 채팅</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- QR Code Generator Library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* 기본 폰트 설정 */
+        body {
+            font-family: 'Inter', 'Noto Sans KR', sans-serif;
+        }
+        /* 스크롤바 디자인 */
+        #chat-messages::-webkit-scrollbar {
+            width: 8px;
+        }
+        #chat-messages::-webkit-scrollbar-track {
+            background: #f1f5f9; /* slate-100 */
+        }
+        #chat-messages::-webkit-scrollbar-thumb {
+            background: #94a3b8; /* slate-400 */
+            border-radius: 10px;
+        }
+        #chat-messages::-webkit-scrollbar-thumb:hover {
+            background: #64748b; /* slate-500 */
+        }
+    </style>
+</head>
+<body class="bg-slate-100 flex flex-col h-screen antialiased text-slate-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md p-4 flex justify-between items-center z-10">
+        <h1 class="text-xl font-bold text-slate-700">실시간 QR 채팅방</h1>
+        <button id="qr-code-button" class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300 flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-qr-code mr-2" viewBox="0 0 16 16">
+                <path d="M2 2h2v2H2z"/>
+                <path d="M6 0v6H0V0h6zM5 1H1v4h4V1z"/>
+                <path d="M2 8h2v2H2z"/>
+                <path d="M6 8v6H0V8h6zM5 9H1v4h4V9z"/>
+                <path d="M8 2h2v2H8z"/>
+                <path d="M12 0v6h-4V0h4zm-1 1h-2v4h2V1z"/>
+                <path d="M8 8h2v2H8z"/>
+                <path d="M12 8h2v2h-2z"/>
+                <path d="M12 12h2v2h-2z"/>
+                <path d="M10 12h2v2h-2z"/>
+                <path d="M8 12h2v2H8z"/>
+                <path d="M10 8h2v2h-2z"/>
+            </svg>
+            채팅방 초대
+        </button>
+    </header>
+
+    <!-- Nickname Setup Modal -->
+    <div id="nickname-modal" class="fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center z-50">
+        <div class="bg-white p-8 rounded-2xl shadow-xl w-11/12 max-w-sm text-center">
+            <h2 class="text-2xl font-bold mb-4">닉네임을 입력하세요</h2>
+            <p class="text-slate-500 mb-6">채팅방에서 사용할 이름입니다.</p>
+            <input type="text" id="nickname-input" class="w-full border-2 border-slate-300 rounded-lg p-3 text-center text-lg focus:border-indigo-500 focus:ring-indigo-500 transition" placeholder="예: 라이언">
+            <button id="start-chat-button" class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-3 px-4 rounded-lg mt-6 transition duration-300">
+                채팅 시작하기
+            </button>
+        </div>
+    </div>
+
+    <!-- QR Code Modal -->
+    <div id="qr-code-modal" class="fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center z-40 hidden">
+        <div class="bg-white p-8 rounded-2xl shadow-xl text-center relative w-11/12 max-w-sm">
+            <button id="close-qr-modal" class="absolute top-4 right-4 text-slate-500 hover:text-slate-800">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+                </svg>
+            </button>
+            <h2 class="text-2xl font-bold mb-4">QR 코드로 초대</h2>
+            <p class="text-slate-500 mb-6">스마트폰으로 스캔하여 채팅에 참여하세요.</p>
+            <div id="qrcode" class="flex justify-center items-center p-4 bg-slate-50 rounded-lg"></div>
+            <div class="mt-6 flex flex-col sm:flex-row gap-3">
+                <button id="copy-url-button" class="w-full bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold py-3 px-4 rounded-lg transition duration-300">URL 복사</button>
+                <button id="share-qr-button" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-lg transition duration-300">QR코드 공유</button>
+            </div>
+            <p class="mt-4 text-xs text-slate-400 break-all">URL: <span id="chat-url"></span></p>
+        </div>
+    </div>
+    
+    <!-- Custom Alert/Toast -->
+    <div id="toast-notification" class="fixed bottom-5 left-1/2 -translate-x-1/2 bg-slate-800 text-white py-2 px-5 rounded-full text-sm opacity-0 transition-opacity duration-300">
+        URL이 복사되었습니다!
+    </div>
+
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col p-4 overflow-hidden">
+        <!-- Chat Messages -->
+        <div id="chat-messages" class="flex-1 space-y-4 p-4 overflow-y-auto bg-white rounded-t-xl shadow-inner">
+            <!-- Messages will be dynamically inserted here -->
+        </div>
+
+        <!-- Message Input -->
+        <div class="bg-white p-4 rounded-b-xl shadow-lg">
+            <form id="message-form" class="flex items-center space-x-4">
+                <input type="text" id="message-input" placeholder="메시지를 입력하세요..." autocomplete="off"
+                    class="flex-1 w-full px-4 py-3 border-2 border-slate-200 rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition">
+                <button type="submit"
+                    class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold p-3 rounded-full transition duration-300 flex items-center justify-center aspect-square">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-send-fill" viewBox="0 0 16 16">
+                        <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- User Info Footer -->
+    <footer class="text-center p-2 bg-slate-200 text-xs text-slate-500">
+        내 ID: <span id="user-id" class="font-mono"></span>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        // Firebase SDK 모듈 가져오기
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc, query, onSnapshot, orderBy, serverTimestamp, setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // --- DOM 요소 가져오기 ---
+        const nicknameModal = document.getElementById('nickname-modal');
+        const nicknameInput = document.getElementById('nickname-input');
+        const startChatButton = document.getElementById('start-chat-button');
+        const chatMessages = document.getElementById('chat-messages');
+        const messageForm = document.getElementById('message-form');
+        const messageInput = document.getElementById('message-input');
+        const qrCodeButton = document.getElementById('qr-code-button');
+        const qrCodeModal = document.getElementById('qr-code-modal');
+        const closeQrModalButton = document.getElementById('close-qr-modal');
+        const qrcodeContainer = document.getElementById('qrcode');
+        const chatUrlSpan = document.getElementById('chat-url');
+        const userIdSpan = document.getElementById('user-id');
+        const copyUrlButton = document.getElementById('copy-url-button');
+        const shareQrButton = document.getElementById('share-qr-button');
+        const toastNotification = document.getElementById('toast-notification');
+        
+        let db, auth;
+        let currentUserId = null;
+        let currentUserNickname = null;
+        let messagesUnsubscribe = null; // 실시간 리스너 구독 해제 함수
+
+        // --- Firebase 초기화 및 인증 ---
+        async function initializeFirebase() {
+            // 디버그 로깅 활성화
+            setLogLevel('debug');
+            
+            const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-chat-app';
+            const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+            const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+
+            if (!firebaseConfig.apiKey) {
+                console.error("Firebase 설정이 올바르지 않습니다.");
+                chatMessages.innerHTML = `<div class="text-center text-red-500">채팅 서비스를 불러올 수 없습니다. Firebase 설정 오류.</div>`;
+                return;
+            }
+
+            try {
+                const app = initializeApp(firebaseConfig);
+                auth = getAuth(app);
+                db = getFirestore(app);
+
+                onAuthStateChanged(auth, async (user) => {
+                    if (user) {
+                        currentUserId = user.uid;
+                        userIdSpan.textContent = currentUserId;
+                        console.log("인증 성공, User ID:", currentUserId);
+                        checkNicknameAndStart();
+                    } else {
+                        try {
+                            if (initialAuthToken) {
+                                await signInWithCustomToken(auth, initialAuthToken);
+                            } else {
+                                await signInAnonymously(auth);
+                            }
+                        } catch (error) {
+                            console.error("로그인 실패:", error);
+                            chatMessages.innerHTML = `<div class="text-center text-red-500">인증에 실패했습니다. 페이지를 새로고침 해주세요.</div>`;
+                        }
+                    }
+                });
+
+            } catch (error) {
+                console.error("Firebase 초기화 실패:", error);
+                chatMessages.innerHTML = `<div class="text-center text-red-500">Firebase 초기화에 실패했습니다.</div>`;
+            }
+        }
+        
+        // --- 닉네임 처리 및 채팅 시작 ---
+        function checkNicknameAndStart() {
+            currentUserNickname = localStorage.getItem('chat_nickname');
+            if (currentUserNickname) {
+                nicknameModal.classList.add('hidden');
+                startChat();
+            } else {
+                nicknameModal.classList.remove('hidden');
+            }
+        }
+        
+        startChatButton.addEventListener('click', () => {
+            const nickname = nicknameInput.value.trim();
+            if (nickname) {
+                currentUserNickname = nickname;
+                localStorage.setItem('chat_nickname', nickname);
+                nicknameModal.classList.add('hidden');
+                startChat();
+            } else {
+                // 커스텀 알림 사용 (alert 대체)
+                showToast("닉네임을 입력해주세요.");
+            }
+        });
+
+        // 엔터 키로 닉네임 입력
+        nicknameInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                startChatButton.click();
+            }
+        });
+        
+        // --- 채팅 기능 ---
+        function startChat() {
+            if (!currentUserId || !currentUserNickname) return;
+            
+            if (messagesUnsubscribe) messagesUnsubscribe();
+
+            const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-chat-app';
+            const messagesRef = collection(db, `artifacts/${appId}/public/data/chat_messages`);
+            const q = query(messagesRef, orderBy("createdAt", "asc"));
+
+            messagesUnsubscribe = onSnapshot(q, (snapshot) => {
+                const hadMessages = chatMessages.childElementCount > 0;
+                const isScrolledToBottom = chatMessages.scrollHeight - chatMessages.clientHeight <= chatMessages.scrollTop + 1;
+
+                chatMessages.innerHTML = '';
+                snapshot.forEach(doc => {
+                    displayMessage(doc.data());
+                });
+
+                if (!hadMessages || isScrolledToBottom) {
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }
+            }, (error) => {
+                console.error("메시지 수신 오류:", error);
+            });
+            
+            generateQRCode();
+        }
+
+        messageForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const messageText = messageInput.value.trim();
+
+            if (messageText && currentUserId && currentUserNickname) {
+                try {
+                    const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-chat-app';
+                    await addDoc(collection(db, `artifacts/${appId}/public/data/chat_messages`), {
+                        text: messageText,
+                        senderId: currentUserId,
+                        senderNickname: currentUserNickname,
+                        createdAt: serverTimestamp()
+                    });
+                    messageInput.value = '';
+                    messageInput.focus();
+                } catch (error) {
+                    console.error("메시지 전송 실패:", error);
+                    showToast("메시지 전송에 실패했습니다.");
+                }
+            }
+        });
+
+        function displayMessage(msg) {
+            if (!msg.createdAt) return;
+
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('flex', 'items-end', 'gap-2');
+            
+            const isMyMessage = msg.senderId === currentUserId;
+            const time = new Date(msg.createdAt.seconds * 1000).toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit' });
+
+            if (isMyMessage) {
+                messageElement.classList.add('justify-end');
+                messageElement.innerHTML = `
+                    <span class="text-xs text-slate-400 self-end">${time}</span>
+                    <div class="max-w-xs md:max-w-md lg:max-w-lg bg-indigo-500 text-white p-3 rounded-l-2xl rounded-tr-2xl">
+                        <p>${escapeHTML(msg.text)}</p>
+                    </div>
+                `;
+            } else {
+                messageElement.classList.add('justify-start');
+                messageElement.innerHTML = `
+                    <div class="bg-slate-200 p-3 rounded-r-2xl rounded-tl-2xl">
+                        <p class="font-bold text-sm text-slate-600 mb-1">${escapeHTML(msg.senderNickname)}</p>
+                        <p>${escapeHTML(msg.text)}</p>
+                    </div>
+                    <span class="text-xs text-slate-400 self-end">${time}</span>
+                `;
+            }
+            chatMessages.appendChild(messageElement);
+        }
+        
+        function escapeHTML(str) {
+            return str.replace(/[&<>"']/g, match => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[match]);
+        }
+        
+        // --- QR 코드 및 공유 기능 ---
+        function generateQRCode() {
+            const url = window.location.href;
+            chatUrlSpan.textContent = url;
+            qrcodeContainer.innerHTML = '';
+            QRCode.toCanvas(url, { errorCorrectionLevel: 'H', width: 256, margin: 2 }, function (err, canvas) {
+                if (err) throw err;
+                qrcodeContainer.appendChild(canvas);
+            });
+        }
+        
+        copyUrlButton.addEventListener('click', () => {
+            const url = chatUrlSpan.textContent;
+            // iframe 제약사항으로 인해 document.execCommand 사용
+            const textArea = document.createElement('textarea');
+            textArea.value = url;
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                showToast('URL이 복사되었습니다!');
+            } catch (err) {
+                console.error('URL 복사 실패:', err);
+                showToast('URL 복사에 실패했습니다.');
+            }
+            document.body.removeChild(textArea);
+        });
+
+        shareQrButton.addEventListener('click', async () => {
+            const canvas = qrcodeContainer.querySelector('canvas');
+            const url = window.location.href;
+            const text = "이 채팅방에 참여해보세요!";
+
+            if (navigator.share && canvas) {
+                canvas.toBlob(async (blob) => {
+                    const file = new File([blob], 'qrcode.png', { type: 'image/png' });
+                    const shareData = {
+                        title: 'QR 코드 채팅 초대',
+                        text: text,
+                        url: url,
+                        files: [file]
+                    };
+                    // 모바일 등에서 파일 공유가 가능한지 확인
+                    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+                         try {
+                            await navigator.share(shareData);
+                        } catch (err) {
+                            console.error('공유 실패:', err);
+                        }
+                    } else {
+                        // 파일 공유가 안되면 텍스트와 URL만 공유
+                        try {
+                            await navigator.share({ title: 'QR 코드 채팅 초대', text: text, url: url });
+                        } catch (err) {
+                            console.error('공유 실패:', err);
+                        }
+                    }
+                }, 'image/png');
+            } else {
+                showToast('이 브라우저에서는 공유 기능을 지원하지 않습니다.');
+            }
+        });
+        
+        // --- UI 유틸리티 ---
+        function showToast(message) {
+            toastNotification.textContent = message;
+            toastNotification.classList.remove('opacity-0');
+            setTimeout(() => {
+                toastNotification.classList.add('opacity-0');
+            }, 2000);
+        }
+
+        qrCodeButton.addEventListener('click', () => qrCodeModal.classList.remove('hidden'));
+        closeQrModalButton.addEventListener('click', () => qrCodeModal.classList.add('hidden'));
+        qrCodeModal.addEventListener('click', (e) => {
+            if(e.target === qrCodeModal) qrCodeModal.classList.add('hidden');
+        });
+
+        // --- 앱 시작 ---
+        window.onload = initializeFirebase;
+    </script>
+</body>
+</html>
