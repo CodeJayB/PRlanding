@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<script async src="https://tally.so/widgets/embed.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>테드프로토콜 - 연이율 24%, 투자의 새로운 기준</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Tally.so 위젯 스크립트 추가 -->
+    <script async src="https://tally.so/widgets/embed.js"></script>
     <style>
         /* 기본 폰트 및 커스텀 스타일 설정 */
         body {
@@ -41,7 +42,12 @@
     <header class="bg-white shadow-md">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <h1 class="text-2xl font-bold gradient-text">Ted Protocol</h1>
-            <a href="#calculator" class="cta-button bg-indigo-600 text-white font-bold py-2 px-6 rounded-full hover:bg-indigo-700">
+            <!-- Tally 팝업을 열도록 수정된 회원가입 버튼 -->
+            <a href="#" 
+               data-tally-open="wAYZ1r" 
+               data-tally-emoji-text="👋" 
+               data-tally-emoji-animation="wave"
+               class="cta-button bg-indigo-600 text-white font-bold py-2 px-6 rounded-full hover:bg-indigo-700">
                 회원가입
             </a>
         </nav>
@@ -320,7 +326,12 @@
                     연 24%의 복리 효과, 먼저 시작할수록 더 커집니다.
                 </p>
                 <div class="mt-10">
-                    <a href="http://tedprotocol.com/member/memt.php?type=member_yak" target="_blank" class="cta-button bg-white text-indigo-600 font-bold text-lg py-4 px-10 rounded-full hover:bg-gray-100">
+                    <!-- Tally 팝업을 열도록 수정된 회원가입 버튼 -->
+                    <a href="#" 
+                       data-tally-open="wAYZ1r" 
+                       data-tally-emoji-text="👋" 
+                       data-tally-emoji-animation="wave"
+                       class="cta-button bg-white text-indigo-600 font-bold text-lg py-4 px-10 rounded-full hover:bg-gray-100">
                         혜택 받고 회원가입 하기
                     </a>
                 </div>
