@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테드프로토콜 - 연이율 24%, 투자의 새로운 기준</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* 기본 폰트 및 커스텀 스타일 설정 */
+        body {
+            font-family: 'Noto Sans KR', 'Inter', sans-serif;
+        }
+        /* 그라데이션 텍스트 효과 */
+        .gradient-text {
+            background: linear-gradient(90deg, #4F46E5, #0891B2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+        /* 버튼 호버 애니메이션 */
+        .cta-button {
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px -10px rgba(79, 70, 229, 0.5);
+        }
+        /* 카드 호버 애니메이션 */
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Hero Section -->
+    <header class="bg-white shadow-md">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold gradient-text">Ted Protocol</h1>
+            <a href="#calculator" class="cta-button bg-indigo-600 text-white font-bold py-2 px-6 rounded-full hover:bg-indigo-700">
+                회원가입
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 1. Main Visual & Headline Section -->
+        <section class="relative text-center py-20 md:py-32 px-6 bg-white overflow-hidden">
+            <div class="absolute inset-0 bg-[url('https://placehold.co/1200x800/E0E7FF/4F46E5?text=Professional+Business+Image')] bg-cover bg-center opacity-10"></div>
+            <div class="relative container mx-auto">
+                <h2 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight">
+                    <span class="block">은행 이자는 불만족, 코인 투자는 불안?</span>
+                    <span class="block gradient-text mt-2">연이율 24%, 이제 당신의 월급이 됩니다.</span>
+                </h2>
+                <p class="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-gray-600">
+                    '제2의 월급', '든든한 노후 준비'의 꿈을 현실로.
+                    안전성과 수익성을 모두 잡은 디지털 자산 예치 플랫폼, 테드프로토콜이 투자의 패러다임을 바꿉니다.
+                </p>
+                <div class="mt-10">
+                    <a href="#calculator" class="cta-button bg-indigo-600 text-white font-bold text-lg py-4 px-10 rounded-full hover:bg-indigo-700">
+                        내 예상 수익금 확인하기
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Problem & Solution Section -->
+        <section class="py-16 md:py-24 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center">
+                    <h3 class="text-3xl md:text-4xl font-bold text-gray-900">왜 <span class="gradient-text">테드프로토콜</span>이어야 할까요?</h3>
+                    <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-600">기존 투자의 한계를 넘어, 안정적인 수익 창출의 새로운 기준을 제시합니다.</p>
+                </div>
+                <div class="mt-12 grid md:grid-cols-2 gap-8 items-center">
+                    <!-- Comparison Table -->
+                    <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
+                        <h4 class="text-2xl font-bold text-center mb-6">기존 투자 vs 테드프로토콜</h4>
+                        <table class="w-full text-left">
+                            <thead>
+                                <tr class="border-b-2 border-gray-200">
+                                    <th class="py-3 px-2 font-semibold text-gray-500">구분</th>
+                                    <th class="py-3 px-2 font-semibold text-gray-500">기존 암호화폐 스테이킹</th>
+                                    <th class="py-3 px-2 font-bold text-indigo-600">테드프로토콜</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-100">
+                                    <td class="py-4 px-2 font-medium">평균 연이율</td>
+                                    <td class="py-4 px-2">약 5% 내외</td>
+                                    <td class="py-4 px-2 font-bold text-indigo-700">연 24%</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="py-4 px-2 font-medium">이자 지급 방식</td>
+                                    <td class="py-4 px-2">예치한 코인과 동일</td>
+                                    <td class="py-4 px-2 font-bold text-indigo-700">가치 변동 없는 USDT 지급</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="py-4 px-2 font-medium">원금 가치</td>
+                                    <td class="py-4 px-2">코인 가격에 따라 변동</td>
+                                    <td class="py-4 px-2 font-bold text-indigo-700">코인 수량 보존 (하이브리드형)</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-4 px-2 font-medium">리스크</td>
+                                    <td class="py-4 px-2">시장 변동성에 직접 노출</td>
+                                    <td class="py-4 px-2 font-bold text-indigo-700">QTS 통한 리스크 관리</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- Image -->
+                    <div class="text-center">
+                        <img src="https://placehold.co/500x400/D1FAE5/10B981?text=New+Investment+Paradigm" alt="새로운 투자 패러다임" class="rounded-2xl shadow-xl mx-auto">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. How it works (QTS) Section -->
+        <section class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl md:text-4xl font-bold text-gray-900">무엇이 연 24%의 <span class="gradient-text">안정적 수익</span>을 가능하게 할까요?</h3>
+                    <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-600">핵심은 독자 개발 AI 퀀트 트레이딩 시스템, <span class="font-bold">QTS</span>에 있습니다.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Feature Card 1 -->
+                    <div class="feature-card bg-gray-50 p-6 rounded-2xl shadow-md border border-gray-200 transition-all duration-300">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-indigo-100 text-indigo-600 mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4M4 7v4c0 2.21 3.582 4 8 4s8-1.79 8-4V7"></path></svg>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2">빅데이터 기반 분석</h4>
+                        <p class="text-gray-600">30년 간의 방대한 외환(FX) 시장 데이터를 통계적으로 분석하여 예측의 정확도를 높입니다.</p>
+                    </div>
+                    <!-- Feature Card 2 -->
+                    <div class="feature-card bg-gray-50 p-6 rounded-2xl shadow-md border border-gray-200 transition-all duration-300">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-indigo-100 text-indigo-600 mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M12 6V3m0 18v-3M5.636 5.636l-1.414-1.414m15.556 15.556l-1.414-1.414M18.364 5.636l-1.414 1.414m-12.728 12.728l-1.414 1.414"></path><circle cx="12" cy="12" r="4"></circle></svg>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2">AI 자동매매 시스템</h4>
+                        <p class="text-gray-600">인간의 감정적 판단을 배제하고, 오직 데이터에 근거한 최적의 타이밍에 자동으로 거래를 실행합니다.</p>
+                    </div>
+                    <!-- Feature Card 3 -->
+                    <div class="feature-card bg-gray-50 p-6 rounded-2xl shadow-md border border-gray-200 transition-all duration-300">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-indigo-100 text-indigo-600 mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2">폰지 구조가 아닌 실현 수익</h4>
+                        <p class="text-gray-600">신규 투자금이 아닌, QTS가 실제로 창출한 운용 수익으로만 이자를 지급하는 건강한 구조입니다.</p>
+                    </div>
+                    <!-- Feature Card 4 -->
+                    <div class="feature-card bg-gray-50 p-6 rounded-2xl shadow-md border border-gray-200 transition-all duration-300">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-indigo-100 text-indigo-600 mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2">투명한 수익 공개</h4>
+                        <p class="text-gray-600">매월 회계법인 수익 공증 및 실시간 운용 리포트를 제공하여 모든 과정을 투명하게 공개합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Profit Calculator Section -->
+        <section id="calculator" class="py-16 md:py-24 bg-indigo-700 text-white">
+            <div class="container mx-auto px-6">
+                <div class="bg-white text-gray-800 rounded-2xl shadow-2xl p-8 md:p-12 max-w-3xl mx-auto">
+                    <h3 class="text-2xl md:text-3xl font-bold text-center mb-2">만약 <span class="text-indigo-600">1억원</span>을 예치한다면?</h3>
+                    <p class="text-center text-gray-600 mb-8">연 24%의 놀라운 수익률을 직접 계산해보세요. (최소 100만원 ~ 최대 한도 없음)</p>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <label for="investmentAmount" class="block text-sm font-medium text-gray-700">예치 금액 (만원)</label>
+                            <input type="number" id="investmentAmount" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-lg" placeholder="1000" value="10000">
+                        </div>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                            <button onclick="setAmount(100)" class="bg-gray-200 text-gray-700 py-2 rounded-md hover:bg-gray-300 transition">+100만</button>
+                            <button onclick="setAmount(500)" class="bg-gray-200 text-gray-700 py-2 rounded-md hover:bg-gray-300 transition">+500만</button>
+                            <button onclick="setAmount(1000)" class="bg-gray-200 text-gray-700 py-2 rounded-md hover:bg-gray-300 transition">+1000만</button>
+                            <button onclick="setAmount(10000)" class="bg-gray-200 text-gray-700 py-2 rounded-md hover:bg-gray-300 transition">+1억</button>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 border-t-2 border-gray-100 pt-6 space-y-4">
+                        <div class="flex justify-between items-center">
+                            <p class="text-lg text-gray-600">매월 받게 될 예상 이자</p>
+                            <p id="monthlyProfit" class="text-2xl font-bold text-indigo-600">200만원</p>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <p class="text-lg text-gray-600">1년 후 총 예상 수익</p>
+                            <p id="yearlyProfit" class="text-2xl font-bold text-indigo-600">2,400만원</p>
+                        </div>
+                         <div class="flex justify-between items-center bg-indigo-50 p-4 rounded-lg">
+                            <p class="text-lg font-semibold text-gray-800">1년 후 총 예상 자산</p>
+                            <p id="totalAsset" class="text-3xl font-extrabold gradient-text">1억 2,400만원</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Investment Products Section -->
+        <section class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl md:text-4xl font-bold text-gray-900">당신의 투자 성향에 맞는 <span class="gradient-text">최적의 상품</span>을 선택하세요</h3>
+                    <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-600">안정성부터 높은 잠재 수익까지, 3가지 맞춤형 투자 상품을 제공합니다.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Product Card 1: Stable -->
+                    <div class="feature-card border-2 border-indigo-600 rounded-2xl shadow-xl p-8 text-center transition-all duration-300">
+                        <span class="inline-block bg-indigo-600 text-white text-sm font-bold px-4 py-1 rounded-full mb-4">안정 추구형</span>
+                        <h4 class="text-2xl font-bold mb-3">안정형 상품</h4>
+                        <p class="text-gray-600 mb-6 h-16">원금과 이자 모두 달러 기반 스테이블 코인(USDT)으로 받아 가치 변동 위험을 최소화합니다.</p>
+                        <div class="bg-indigo-50 text-indigo-800 p-4 rounded-lg">
+                            <p class="font-semibold">최대 연 <span class="text-3xl font-bold">24%</span></p>
+                            <p class="text-sm">안정적인 고정 수익</p>
+                        </div>
+                    </div>
+                    <!-- Product Card 2: Hybrid -->
+                    <div class="feature-card border border-gray-200 rounded-2xl shadow-lg p-8 text-center transition-all duration-300">
+                         <span class="inline-block bg-teal-500 text-white text-sm font-bold px-4 py-1 rounded-full mb-4">성장 추구형</span>
+                        <h4 class="text-2xl font-bold mb-3">하이브리드형 상품</h4>
+                        <p class="text-gray-600 mb-6 h-16">원금(BTC/ETH)은 코인으로 보유하여 가치 상승을, 이자는 USDT로 받아 안정성을 동시에 확보합니다.</p>
+                        <div class="bg-teal-50 text-teal-800 p-4 rounded-lg">
+                            <p class="font-semibold">코인 상승 잠재력</p>
+                            <p class="text-2xl font-bold">+ 안정적 이자</p>
+                        </div>
+                    </div>
+                    <!-- Product Card 3: High-Yield -->
+                    <div class="feature-card border border-gray-200 rounded-2xl shadow-lg p-8 text-center transition-all duration-300">
+                         <span class="inline-block bg-amber-500 text-white text-sm font-bold px-4 py-1 rounded-full mb-4">고수익 추구형</span>
+                        <h4 class="text-2xl font-bold mb-3">고수익형 상품</h4>
+                        <p class="text-gray-600 mb-6 h-16">자체 코인(TEDP)을 활용, 플랫폼 수익을 공유받아 수천%의 폭발적인 수익률을 기대할 수 있습니다.</p>
+                        <div class="bg-amber-50 text-amber-800 p-4 rounded-lg">
+                            <p class="font-semibold">초기 투자자 기대 수익률</p>
+                            <p class="text-2xl font-bold">수천 %+</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Trust & Credibility Section -->
+        <section class="py-16 md:py-24 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl md:text-4xl font-bold text-gray-900">숫자로 증명된 신뢰, <span class="gradient-text">세계가 인정한 기술력</span></h3>
+                    <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-600">위기 속에서도 흔들림 없는 수익률, 객관적인 데이터가 테드프로토콜의 가치를 증명합니다.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <img src="https://placehold.co/600x400/1F2937/FFFFFF?text=COVID-19+QTS+수익률+그래프" alt="코로나19 시기 QTS 수익률" class="rounded-2xl shadow-xl w-full">
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-bold mb-4">코로나19 위기에도 빛난 안정성</h4>
+                        <p class="text-gray-600 mb-6">2020년 1분기, 전 세계 헤지펀드가 약 -10%의 손실을 기록할 때, QTS는 안정적인 플러스 수익률(<span class="font-bold text-indigo-600">+5.31%</span>)을 달성하며 위기관리 능력을 입증했습니다.</p>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-6 w-6 rounded-full bg-green-500 text-white flex items-center justify-center mr-3 mt-1">✓</div>
+                                <span><span class="font-bold">글로벌 Top Tier 경력:</span> 40만명 참가 FX 콘테스트 상위권 석권</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-6 w-6 rounded-full bg-green-500 text-white flex items-center justify-center mr-3 mt-1">✓</div>
+                                <span><span class="font-bold">세계적 공신력:</span> 뉴욕 록펠러 플라자 투자 설명회 개최</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-6 w-6 rounded-full bg-green-500 text-white flex items-center justify-center mr-3 mt-1">✓</div>
+                                <span><span class="font-bold">객관적 검증:</span> 매월 대형 회계법인(PKF O'CONNOR DAVIES)을 통한 수익 공증</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Target Audience Section -->
+        <section class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl md:text-4xl font-bold text-gray-900"><span class="gradient-text">이런 분들께</span> 강력히 추천합니다!</h3>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                    <div class="bg-gray-50 p-6 rounded-lg flex items-center space-x-4">
+                        <span class="text-3xl">💰</span>
+                        <p class="font-medium">매달 월급처럼 안정적인 수입을 원하는 분</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg flex items-center space-x-4">
+                        <span class="text-3xl">🏡</span>
+                        <p class="font-medium">노후 대비를 위한 고정 생활비가 필요한 은퇴 준비자</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg flex items-center space-x-4">
+                        <span class="text-3xl">😟</span>
+                        <p class="font-medium">코인 투자의 원금 손실이 걱정되는 분</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg flex items-center space-x-4">
+                        <span class="text-3xl">📉</span>
+                        <p class="font-medium">낮은 은행 예금 이율에 만족하지 못하는 분</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg flex items-center space-x-4">
+                        <span class="text-3xl">🧐</span>
+                        <p class="font-medium">투명한 수익 모델을 직접 확인하고 투자하고 싶은 분</p>
+                    </div>
+                     <div class="bg-gray-50 p-6 rounded-lg flex items-center space-x-4">
+                        <span class="text-3xl">💡</span>
+                        <p class="font-medium">여유자금으로 새로운 재테크를 찾고 있는 분</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. Final CTA Section -->
+        <section class="bg-indigo-800">
+            <div class="container mx-auto px-6 py-16 md:py-24 text-center">
+                <h3 class="text-3xl md:text-4xl font-bold text-white">기회는 바로 지금입니다.</h3>
+                <p class="mt-4 max-w-2xl mx-auto text-lg text-indigo-200">
+                    지금 가입하는 초기 멤버에게만 드리는 특별한 혜택을 놓치지 마세요.
+                    연 24%의 복리 효과, 먼저 시작할수록 더 커집니다.
+                </p>
+                <div class="mt-10">
+                    <a href="http://tedprotocol.com/member/memt.php?type=member_yak" target="_blank" class="cta-button bg-white text-indigo-600 font-bold text-lg py-4 px-10 rounded-full hover:bg-gray-100">
+                        혜택 받고 회원가입 하기
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-400">
+            <p>&copy; 2024 Ted Protocol. All Rights Reserved.</p>
+            <p class="text-sm mt-2">본 페이지는 투자 권유가 아닌 정보 제공을 목적으로 합니다. 모든 투자의 책임은 투자자 본인에게 있습니다.</p>
+            <div class="mt-4 space-x-6">
+                <a href="#" class="hover:text-white">이용약관</a>
+                <a href="#" class="hover:text-white">개인정보처리방침</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 수익률 계산기 로직
+        const investmentInput = document.getElementById('investmentAmount');
+        const monthlyProfitEl = document.getElementById('monthlyProfit');
+        const yearlyProfitEl = document.getElementById('yearlyProfit');
+        const totalAssetEl = document.getElementById('totalAsset');
+        const annualRate = 0.24;
+
+        function formatCurrency(num) {
+            return new Intl.NumberFormat('ko-KR').format(num);
+        }
+
+        function calculateProfit() {
+            const amount = parseFloat(investmentInput.value) * 10000 || 0;
+            if (amount < 1000000) {
+                // 최소 금액 미만일 때 처리 (선택사항)
+            }
+
+            const monthlyProfit = amount * (annualRate / 12);
+            const yearlyProfit = amount * annualRate;
+            const totalAsset = amount + yearlyProfit;
+
+            monthlyProfitEl.textContent = formatCurrency(Math.round(monthlyProfit)) + '원';
+            yearlyProfitEl.textContent = formatCurrency(Math.round(yearlyProfit)) + '원';
+            totalAssetEl.textContent = formatCurrency(Math.round(totalAsset)) + '원';
+        }
+
+        function setAmount(amountInMan) {
+            const currentAmount = parseFloat(investmentInput.value) || 0;
+            investmentInput.value = currentAmount + amountInMan;
+            calculateProfit();
+        }
+        
+        // 입력 시 실시간 계산
+        investmentInput.addEventListener('input', calculateProfit);
+        
+        // 초기 로드 시 계산 실행
+        window.onload = calculateProfit;
+    </script>
+
+</body>
+</html>
