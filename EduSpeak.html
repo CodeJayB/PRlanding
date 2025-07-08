@@ -1,0 +1,405 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Academy - Master Your English</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .animate-fade-in { animation: fadeIn 0.8s ease-out forwards; }
+        .animate-slide-up { animation: slideUp 0.8s ease-out forwards; }
+        .animate-slide-left { animation: slideLeft 0.8s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideLeft { from { opacity: 0; transform: translateX(30px); } to { opacity: 1; transform: translateX(0); } }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+        .delay-600 { animation-delay: 0.6s; }
+        .delay-700 { animation-delay: 0.7s; }
+        .delay-800 { animation-delay: 0.8s; }
+        .opacity-0 { opacity: 0; }
+        .form-floating { position: relative; }
+        .form-floating input, .form-floating select { 
+            border: 2px solid #EAEAEA;
+            border-radius: 8px;
+            padding: 16px;
+            font-size: 16px;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        .form-floating input:focus, .form-floating select:focus { 
+            outline: none; 
+            border-color: #00A99D;
+            box-shadow: 0 0 0 3px rgba(0, 169, 157, 0.1);
+        }
+        .form-floating label {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            color: #6B7280;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+        .form-floating input:focus + label,
+        .form-floating input:not(:placeholder-shown) + label {
+            top: -8px;
+            left: 12px;
+            font-size: 12px;
+            background: white;
+            padding: 0 4px;
+            color: #00A99D;
+        }
+    </style>
+    
+</head>
+<body class="bg-white text-dark-blue overflow-x-hidden">
+    <!-- Header -->
+    <header class="bg-white border-b border-neutral-medium opacity-0 animate-fade-in">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                        <i data-lucide="book-open" class="w-5 h-5 text-white"></i>
+                    </div>
+                    <span class="text-xl font-semibold text-dark-blue tracking-tight">EduSpeak</span>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#" class="text-gray-600 hover:text-primary transition-colors">Courses</a>
+                    <a href="#" class="text-gray-600 hover:text-primary transition-colors">About</a>
+                    <a href="#" class="text-gray-600 hover:text-primary transition-colors">Teachers</a>
+                    <a href="#consultation" class="text-gray-600 hover:text-primary transition-colors">Contact</a>
+                </nav>
+                <button onclick="document.getElementById('consultation').scrollIntoView({behavior: 'smooth'})" class="bg-accent text-white px-6 py-2 rounded-lg hover:bg-red-600 transition-colors font-medium">
+                    Free Consultation
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-neutral-light to-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <div class="opacity-0 animate-slide-up delay-200">
+                        <h1 class="text-5xl lg:text-6xl font-bold text-dark-blue leading-tight tracking-tight">
+                            Master English<br>
+                            <span class="text-primary">Like a Native</span>
+                        </h1>
+                    </div>
+                    <div class="opacity-0 animate-slide-up delay-300">
+                        <p class="text-xl text-gray-600 leading-relaxed">
+                            Transform your English skills with our proven methodology. Join thousands of students who achieved fluency through our personalized approach.
+                        </p>
+                    </div>
+                    <div class="opacity-0 animate-slide-up delay-400">
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button onclick="document.getElementById('consultation').scrollIntoView({behavior: 'smooth'})" class="bg-primary text-white px-8 py-4 rounded-lg hover:bg-teal-600 transition-colors font-medium text-lg">
+                                Start Learning Today
+                            </button>
+                            <button class="border border-neutral-medium text-dark-blue px-8 py-4 rounded-lg hover:border-primary hover:text-primary transition-colors font-medium text-lg">
+                                Watch Demo
+                            </button>
+                        </div>
+                    </div>
+                    <div class="opacity-0 animate-slide-up delay-500">
+                        <div class="flex items-center space-x-8">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-dark-blue">10K+</div>
+                                <div class="text-gray-500">Students</div>
+                            </div>
+                            <div class="w-px h-8 bg-neutral-medium"></div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-dark-blue">95%</div>
+                                <div class="text-gray-500">Success Rate</div>
+                            </div>
+                            <div class="w-px h-8 bg-neutral-medium"></div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-dark-blue">15+</div>
+                                <div class="text-gray-500">Years Experience</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="opacity-0 animate-slide-left delay-300">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=1471&amp;q=80" alt="Students learning" class="rounded-2xl shadow-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="opacity-0 animate-fade-in delay-100">
+                    <h2 class="text-4xl font-bold text-dark-blue mb-4 tracking-tight">Why Choose EduSpeak?</h2>
+                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">Experience the most effective English learning system designed for Korean students</p>
+                </div>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="opacity-0 animate-slide-up delay-200">
+                    <div class="bg-neutral-light p-8 rounded-xl hover:shadow-lg transition-shadow border border-neutral-medium">
+                        <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-6">
+                            <i data-lucide="users" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-dark-blue mb-3">Small Class Sizes</h3>
+                        <p class="text-gray-600">Maximum 8 students per class ensuring personalized attention and faster progress.</p>
+                    </div>
+                </div>
+                <div class="opacity-0 animate-slide-up delay-300">
+                    <div class="bg-neutral-light p-8 rounded-xl hover:shadow-lg transition-shadow border border-neutral-medium">
+                        <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-6">
+                            <i data-lucide="globe" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-dark-blue mb-3">Native Instructors</h3>
+                        <p class="text-gray-600">Learn from certified native speakers with extensive teaching experience.</p>
+                    </div>
+                </div>
+                <div class="opacity-0 animate-slide-up delay-400">
+                    <div class="bg-neutral-light p-8 rounded-xl hover:shadow-lg transition-shadow border border-neutral-medium">
+                        <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-6">
+                            <i data-lucide="target" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-dark-blue mb-3">Personalized Curriculum</h3>
+                        <p class="text-gray-600">Tailored learning path based on your current level and specific goals.</p>
+                    </div>
+                </div>
+                <div class="opacity-0 animate-slide-up delay-500">
+                    <div class="bg-neutral-light p-8 rounded-xl hover:shadow-lg transition-shadow border border-neutral-medium">
+                        <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-6">
+                            <i data-lucide="clock" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-dark-blue mb-3">Flexible Schedule</h3>
+                        <p class="text-gray-600">Morning, afternoon, and evening classes to fit your busy lifestyle.</p>
+                    </div>
+                </div>
+                <div class="opacity-0 animate-slide-up delay-600">
+                    <div class="bg-neutral-light p-8 rounded-xl hover:shadow-lg transition-shadow border border-neutral-medium">
+                        <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-6">
+                            <i data-lucide="award" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-dark-blue mb-3">Proven Results</h3>
+                        <p class="text-gray-600">95% of our students achieve their target scores in standardized tests.</p>
+                    </div>
+                </div>
+                <div class="opacity-0 animate-slide-up delay-700">
+                    <div class="bg-neutral-light p-8 rounded-xl hover:shadow-lg transition-shadow border border-neutral-medium">
+                        <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-6">
+                            <i data-lucide="headphones" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-dark-blue mb-3">24/7 Support</h3>
+                        <p class="text-gray-600">Get help anytime with our dedicated student support team.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultation Form Section -->
+    <section id="consultation" class="py-20 bg-gradient-to-br from-neutral-light to-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <div class="opacity-0 animate-slide-up delay-200">
+                        <h2 class="text-4xl font-bold text-dark-blue mb-4 tracking-tight">Get Your Free Consultation</h2>
+                        <p class="text-xl text-gray-600 leading-relaxed">
+                            Start your English journey with a personalized consultation. Our expert advisors will assess your current level and create a customized learning plan just for you.
+                        </p>
+                    </div>
+                    <div class="opacity-0 animate-slide-up delay-300">
+                        <div class="space-y-6">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+                                    <i data-lucide="check" class="w-5 h-5 text-white"></i>
+                                </div>
+                                <span class="text-gray-700">Free level assessment test</span>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+                                    <i data-lucide="check" class="w-5 h-5 text-white"></i>
+                                </div>
+                                <span class="text-gray-700">Personalized learning plan</span>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+                                    <i data-lucide="check" class="w-5 h-5 text-white"></i>
+                                </div>
+                                <span class="text-gray-700">Course recommendation</span>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+                                    <i data-lucide="check" class="w-5 h-5 text-white"></i>
+                                </div>
+                                <span class="text-gray-700">One-on-one consultation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="opacity-0 animate-slide-left delay-400">
+                    <div class="bg-white p-8 rounded-2xl shadow-2xl border border-neutral-medium">
+                        <div class="mb-8">
+                            <h3 class="text-2xl font-semibold text-dark-blue mb-2">Book Your Consultation</h3>
+                            <p class="text-gray-600">Fill out the form below and we'll contact you within 24 hours</p>
+                        </div>
+                        <form class="space-y-6">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="form-floating">
+                                    <input type="text" id="firstName" placeholder=" " required="">
+                                    <label for="firstName">First Name</label>
+                                </div>
+                                <div class="form-floating">
+                                    <input type="text" id="lastName" placeholder=" " required="">
+                                    <label for="lastName">Last Name</label>
+                                </div>
+                            </div>
+                            <div class="form-floating">
+                                <input type="email" id="email" placeholder=" " required="">
+                                <label for="email">Email Address</label>
+                            </div>
+                            <div class="form-floating">
+                                <input type="tel" id="phone" placeholder=" " required="">
+                                <label for="phone">Phone Number</label>
+                            </div>
+                            <div class="form-floating">
+                                <select id="level" required="">
+                                    <option value="">Select your English level</option>
+                                    <option value="beginner">Beginner</option>
+                                    <option value="elementary">Elementary</option>
+                                    <option value="intermediate">Intermediate</option>
+                                    <option value="upper-intermediate">Upper Intermediate</option>
+                                    <option value="advanced">Advanced</option>
+                                    <option value="not-sure">Not Sure</option>
+                                </select>
+                            </div>
+                            <div class="form-floating">
+                                <select id="goal" required="">
+                                    <option value="">What's your primary goal?</option>
+                                    <option value="general">General English Improvement</option>
+                                    <option value="business">Business English</option>
+                                    <option value="toeic">TOEIC Preparation</option>
+                                    <option value="toefl">TOEFL Preparation</option>
+                                    <option value="ielts">IELTS Preparation</option>
+                                    <option value="conversation">Conversation Practice</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-floating">
+                                <select id="schedule" required="">
+                                    <option value="">Preferred Schedule</option>
+                                    <option value="morning">Morning (9AM - 12PM)</option>
+                                    <option value="afternoon">Afternoon (1PM - 5PM)</option>
+                                    <option value="evening">Evening (6PM - 9PM)</option>
+                                    <option value="weekend">Weekend</option>
+                                    <option value="flexible">Flexible</option>
+                                </select>
+                            </div>
+                            <div class="form-floating">
+                                <textarea id="message" rows="4" placeholder=" " style="resize: vertical; min-height: 100px; border: 2px solid #EAEAEA; border-radius: 8px; padding: 16px; font-size: 16px; width: 100%; transition: all 0.3s ease;"></textarea>
+                                <label for="message" style="top: 16px;">Additional Message (Optional)</label>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <input type="checkbox" id="agreement" required="" class="w-4 h-4 text-primary border-neutral-medium rounded focus:ring-primary">
+                                <label for="agreement" class="text-sm text-gray-600">
+                                    I agree to the <a href="#" class="text-primary hover:underline">Terms of Service</a> and <a href="#" class="text-primary hover:underline">Privacy Policy</a>
+                                </label>
+                            </div>
+                            <button type="submit" class="w-full bg-primary text-white py-4 rounded-lg hover:bg-teal-600 transition-colors font-medium text-lg">
+                                Book Free Consultation
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-primary py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="opacity-0 animate-fade-in delay-100">
+                <h2 class="text-4xl font-bold text-white mb-6 tracking-tight">Ready to Start Your Journey?</h2>
+                <p class="text-xl text-teal-100 mb-8">Join thousands of successful students and transform your English skills today</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button onclick="document.getElementById('consultation').scrollIntoView({behavior: 'smooth'})" class="bg-accent text-white px-8 py-4 rounded-lg hover:bg-red-600 transition-colors font-medium text-lg">
+                        Book Free Consultation
+                    </button>
+                    <button class="bg-white text-primary px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors font-medium text-lg">
+                        Download Brochure
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-blue text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                            <i data-lucide="book-open" class="w-5 h-5 text-white"></i>
+                        </div>
+                        <span class="text-xl font-semibold">EduSpeak</span>
+                    </div>
+                    <p class="text-gray-400">Empowering students to achieve English fluency through innovative teaching methods.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Courses</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-primary transition-colors">General English</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Business English</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">TOEIC/TOEFL</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">IELTS Prep</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-primary transition-colors">About Us</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Our Teachers</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Success Stories</a></li>
+                        <li><a href="#consultation" class="hover:text-primary transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Contact Info</h4>
+                    <div class="space-y-2 text-gray-400">
+                        <p>📍 123 Education St, Seoul</p>
+                        <p>📞 +82-2-1234-5678</p>
+                        <p>✉️ info@eduspeak.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2024 EduSpeak. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        
+        // Smooth scrolling for consultation form
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form submission handling
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your interest! We will contact you within 24 hours.');
+        });
+    </script>
+
+</body></html>
