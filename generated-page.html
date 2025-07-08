@@ -1,0 +1,305 @@
+<html lang="ko"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>잉글리시크래프트 아카데미 - 전문 강사와 함께하는 영어 마스터</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap');
+        .animate-fade-in { animation: fadeIn 0.8s ease-out forwards; }
+        .animate-slide-up { animation: slideUp 0.8s ease-out forwards; }
+        .animate-delay-200 { animation-delay: 0.2s; }
+        .animate-delay-400 { animation-delay: 0.4s; }
+        .animate-delay-600 { animation-delay: 0.6s; }
+        .animate-delay-800 { animation-delay: 0.8s; }
+        .animate-delay-1000 { animation-delay: 1s; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #1f2937 0%, #374151 50%, #4b5563 100%);
+        }
+        .hero-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(31, 41, 55, 0.95) 0%, rgba(55, 65, 81, 0.9) 100%);
+        }
+        .text-shadow {
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body class="font-noto bg-stone-50 text-stone-800" style="font-family: 'Noto Sans KR', sans-serif; --tw-bg-opacity: 1; background-color: rgb(250 250 249 / var(--tw-bg-opacity));">
+    <!-- 네비게이션 -->
+    <nav class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-md border-b border-stone-200/50 animate-fade-in">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background-color: #374151;">
+                        <i data-lucide="book-open" class="w-5 h-5 text-white"></i>
+                    </div>
+                    <span class="text-xl font-semibold tracking-tight" style="color: #111827;">잉글리시크래프트</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-sm font-medium hover:text-stone-600 transition-colors">수업</a>
+                    <a href="#" class="text-sm font-medium hover:text-stone-600 transition-colors">소개</a>
+                    <a href="#" class="text-sm font-medium hover:text-stone-600 transition-colors">강사진</a>
+                    <a href="#" class="text-sm font-medium hover:text-stone-600 transition-colors">연락처</a>
+                    <button class="px-4 py-2 text-sm font-medium text-white rounded-lg hover:opacity-90 transition-opacity" style="background-color: #374151;">
+                        시작하기
+                    </button>
+                </div>
+                <button class="md:hidden p-2">
+                    <i data-lucide="menu" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 메인 히어로 섹션 -->
+    <section class="pt-24 pb-16 relative overflow-hidden">
+        <div class="absolute inset-0 gradient-bg hero-pattern"></div>
+        <div class="absolute inset-0 hero-overlay"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="text-white">
+                    <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-6 animate-slide-up text-shadow">
+                        전문 강사와 함께
+                        <span class="block text-amber-300 drop-shadow-lg">영어 마스터하기</span>
+                    </h1>
+                    <p class="text-xl text-stone-100 mb-8 leading-relaxed animate-slide-up animate-delay-200 max-w-lg">
+                        검증된 교육 방법론과 맞춤형 접근으로 영어 실력을 향상시킨 수천 명의 학생들과 함께하세요.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 animate-slide-up animate-delay-400">
+                        <button class="px-8 py-4 text-lg font-semibold text-gray-800 bg-white rounded-lg hover:bg-gray-50 transition-colors shadow-lg">
+                            무료 체험 시작
+                        </button>
+                        <button class="px-8 py-4 text-lg font-semibold text-white border-2 border-white/30 rounded-lg hover:bg-white/10 hover:border-white/50 transition-all backdrop-blur-sm">
+                            <i data-lucide="play" class="w-5 h-5 inline mr-2"></i>
+                            데모 보기
+                        </button>
+                    </div>
+                    <div class="flex items-center space-x-8 mt-8 animate-slide-up animate-delay-600">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-white">10,000+</div>
+                            <div class="text-sm text-stone-300">만족한 학생들</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-white">95%</div>
+                            <div class="text-sm text-stone-300">성공률</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-white">4.9/5</div>
+                            <div class="text-sm text-stone-300">평점</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative animate-slide-up animate-delay-600">
+                    <div class="aspect-square rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="영어를 배우는 학생들" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-2xl border border-stone-200">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                                <i data-lucide="check" class="w-6 h-6 text-green-600"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-stone-800">95% 성공률</p>
+                                <p class="text-sm text-stone-600">학생 성취도</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute -top-6 -right-6 bg-amber-400 p-4 rounded-xl shadow-lg">
+                        <div class="flex items-center space-x-2">
+                            <i data-lucide="star" class="w-5 h-5 text-white"></i>
+                            <span class="font-semibold text-white">4.9/5 평점</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 특징 섹션 -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4 animate-fade-in" style="color: #111827;">
+                    왜 잉글리시크래프트를 선택해야 할까요?
+                </h2>
+                <p class="text-xl text-stone-600 max-w-3xl mx-auto animate-fade-in animate-delay-200">
+                    검증된 교육 방법과 최신 기술을 결합한 종합적인 접근법으로 뛰어난 결과를 제공합니다.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center group hover:scale-105 transition-transform animate-fade-in animate-delay-400">
+                    <div class="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center" style="background-color: #fbbf24;">
+                        <i data-lucide="users" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4" style="color: #111827;">전문 강사진</h3>
+                    <p class="text-stone-600 leading-relaxed">
+                        수년간의 교육 경험과 검증된 실력을 갖춘 원어민 자격증 보유 강사진과 함께 학습하세요.
+                    </p>
+                </div>
+                <div class="text-center group hover:scale-105 transition-transform animate-fade-in animate-delay-600">
+                    <div class="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center" style="background-color: #fbbf24;">
+                        <i data-lucide="calendar" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4" style="color: #111827;">유연한 시간표</h3>
+                    <p class="text-stone-600 leading-relaxed">
+                        바쁜 일상에 완벽하게 맞는 오전, 오후, 저녁 수업 중에서 선택할 수 있습니다.
+                    </p>
+                </div>
+                <div class="text-center group hover:scale-105 transition-transform animate-fade-in animate-delay-800">
+                    <div class="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center" style="background-color: #fbbf24;">
+                        <i data-lucide="award" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4" style="color: #111827;">검증된 결과</h3>
+                    <p class="text-stone-600 leading-relaxed">
+                        우리 학생들의 95%가 꾸준한 학습 6개월 내에 영어 목표를 달성합니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 수업 섹션 -->
+    <section class="py-20" style="background-color: #fefefe;">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4 animate-fade-in" style="color: #111827;">
+                    수업 과정
+                </h2>
+                <p class="text-xl text-stone-600 max-w-3xl mx-auto animate-fade-in animate-delay-200">
+                    초급부터 고급까지, 현재 수준과 목표에 완벽하게 맞는 수업을 제공합니다.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-stone-200 hover:shadow-xl transition-shadow animate-fade-in animate-delay-400">
+                    <div class="w-12 h-12 mb-6 rounded-lg flex items-center justify-center" style="background-color: #374151;">
+                        <i data-lucide="play-circle" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3" style="color: #111827;">초급 영어</h3>
+                    <p class="text-stone-600 mb-6 leading-relaxed">
+                        기초 문법, 어휘, 회화 기술로 영어 여행을 시작하세요.
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-2xl font-bold" style="color: #374151;">99,000원/월</span>
+                        <button class="text-sm font-medium hover:underline" style="color: #374151;">더 알아보기</button>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl p-8 shadow-lg border-2 hover:shadow-xl transition-shadow animate-fade-in animate-delay-600" style="border-color: #fbbf24;">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="w-12 h-12 rounded-lg flex items-center justify-center" style="background-color: #374151;">
+                            <i data-lucide="trending-up" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <span class="px-3 py-1 text-xs font-semibold text-white rounded-full" style="background-color: #fbbf24;">인기</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3" style="color: #111827;">중급 영어</h3>
+                    <p class="text-stone-600 mb-6 leading-relaxed">
+                        복잡한 회화, 비즈니스 영어, 문화적 이해를 통해 자신감을 기르세요.
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-2xl font-bold" style="color: #374151;">149,000원/월</span>
+                        <button class="text-sm font-medium hover:underline" style="color: #374151;">더 알아보기</button>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-stone-200 hover:shadow-xl transition-shadow animate-fade-in animate-delay-800">
+                    <div class="w-12 h-12 mb-6 rounded-lg flex items-center justify-center" style="background-color: #374151;">
+                        <i data-lucide="star" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3" style="color: #111827;">고급 영어</h3>
+                    <p class="text-stone-600 mb-6 leading-relaxed">
+                        커리어 성공을 위한 고급 문법, 관용구, 전문적인 의사소통을 마스터하세요.
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-2xl font-bold" style="color: #374151;">199,000원/월</span>
+                        <button class="text-sm font-medium hover:underline" style="color: #374151;">더 알아보기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 행동 유도 섹션 -->
+    <section class="py-20 relative overflow-hidden">
+        <div class="absolute inset-0 gradient-bg"></div>
+        <div class="absolute inset-0 hero-overlay"></div>
+        <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white mb-6 animate-fade-in text-shadow">
+                영어 여행을 시작할 준비가 되셨나요?
+            </h2>
+            <p class="text-xl text-stone-100 mb-8 animate-fade-in animate-delay-200">
+                잉글리시크래프트 아카데미와 함께 영어 실력을 향상시킨 10,000명 이상의 학생들과 함께하세요.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in animate-delay-400">
+                <button class="px-8 py-4 text-lg font-semibold text-gray-800 bg-white rounded-lg hover:bg-gray-50 transition-colors shadow-lg">
+                    무료 체험 시작
+                </button>
+                <button class="px-8 py-4 text-lg font-semibold text-white border-2 border-white/30 rounded-lg hover:bg-white/10 hover:border-white/50 transition-all backdrop-blur-sm">
+                    상담 예약하기
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer class="py-12 bg-white border-t border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background-color: #374151;">
+                            <i data-lucide="book-open" class="w-5 h-5 text-white"></i>
+                        </div>
+                        <span class="text-xl font-semibold tracking-tight" style="color: #111827;">잉글리시크래프트</span>
+                    </div>
+                    <p class="text-stone-600 text-sm leading-relaxed">
+                        혁신적인 교육 방법과 맞춤형 지도를 통해 전 세계 학생들의 영어 마스터를 돕습니다.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4" style="color: #111827;">수업</h4>
+                    <ul class="space-y-2 text-sm text-stone-600">
+                        <li><a href="#" class="hover:text-stone-800 transition-colors">초급 영어</a></li>
+                        <li><a href="#" class="hover:text-stone-800 transition-colors">중급 영어</a></li>
+                        <li><a href="#" class="hover:text-stone-800 transition-colors">고급 영어</a></li>
+                        <li><a href="#" class="hover:text-stone-800 transition-colors">비즈니스 영어</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4" style="color: #111827;">회사</h4>
+                    <ul class="space-y-2 text-sm text-stone-600">
+                        <li><a href="#" class="hover:text-stone-800 transition-colors">회사 소개</a></li>
+                        <li><a href="#" class="hover:text-stone-800 transition-colors">강사진</a></li>
+                        <li><a href="#" class="hover:text-stone-800 transition-colors">성공 사례</a></li>
+                        <li><a href="#" class="hover:text-stone-800 transition-colors">연락처</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4" style="color: #111827;">지원</h4>
+                    <ul class="space-y-2 text-sm text-stone-600">
+                        <li><a href="#" class="hover:text-stone-800 transition-colors">도움말 센터</a></li>
+                        <li><a href="#" class="hover:text-stone-800 transition-colors">수업 일정</a></li>
+                        <li><a href="#" class="hover:text-stone-800 transition-colors">요금</a></li>
+                        <li><a href="#" class="hover:text-stone-800 transition-colors">자주 묻는 질문</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-stone-200 mt-8 pt-8 text-center text-sm text-stone-600">
+                <p>© 2024 잉글리시크래프트 아카데미. 모든 권리 보유.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+
+</body></html>
